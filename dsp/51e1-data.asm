@@ -1,4 +1,4 @@
-    .data
+    .sect ".const"
 
     .def word_d7a7
     .def word_d870
@@ -52,8 +52,7 @@
     .def word_ec46
     .def word_ec4d
 
-    .align 2
-word_d7a7: ; xxx must end with bits 01 or 10
+word_d7a7:
     .word 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000
     .word 0x0000
     .word 0x1000, 0x1100, 0x1110, 0x2110, 0x2111, 0x2211, 0x3211, 0x3221

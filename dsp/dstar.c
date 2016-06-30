@@ -198,10 +198,10 @@ static Uns pkt_process(struct dsptask *task, Uns bid, Uns cnt)
         dstar_golay_dec(1, 0, st->off_16b7, (char *)bitstream, st->off_0bec);
         dstar_dec_frame(80, cmode, st->off_1663, st->off_16b7, 0, st->off_0bf6);
         for (i = 0; i < 80; ++i)
-            pkt[3 + i] = st->off_1663[i];
+            set_word(6 + (i << 1), pkt, st->off_1663[i]);
         dstar_dec_frame(80, cmode, st->off_1663, st->off_16b7, 1, st->off_0bf6);
         for (i = 0; i < 80; ++i)
-            pkt[83 + i] = st->off_1663[i];
+            set_word(6 + 160 + (i << 1), pkt, st->off_1663[i]);
         set_word(1, pkt, 322);
         set_byte(3, pkt, 2);
         set_byte(4, pkt, DV3K_AUDIO_FIELD_SPEECHD);
